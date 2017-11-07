@@ -1,11 +1,10 @@
 package account.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.UUID;
 
+@Entity
 public class Transaction {
 
     @Id
@@ -14,7 +13,7 @@ public class Transaction {
     private BigDecimal amount;
     @Column(nullable = false)
     private Type type;
-    @JoinColumn
+    @ManyToOne
     private Account account;
 
     public String getId() {

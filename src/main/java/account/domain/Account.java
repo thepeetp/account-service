@@ -1,9 +1,11 @@
 package account.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.UUID;
 
+@Entity
 public class Account {
 
     @Id
