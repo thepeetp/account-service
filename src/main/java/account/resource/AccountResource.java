@@ -19,14 +19,14 @@ public class AccountResource {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Account create(@RequestHeader("userRef") String userRef, @RequestBody AccountDTO account) {
+    public Account create(@RequestHeader("User-Ref") String userRef, @RequestBody AccountDTO account) {
         return repository.save(account.toEntity(userRef));
     }
 
 
     @RequestMapping
     @ResponseBody
-    public Collection<AccountDTO> getAll(@RequestHeader("userRef") String userRef) {
+    public Collection<AccountDTO> getAll(@RequestHeader("User-Ref") String userRef) {
         return repository.findByUserRef(userRef).stream().map(AccountDTO::new).collect(Collectors.toList());
     }
 }
