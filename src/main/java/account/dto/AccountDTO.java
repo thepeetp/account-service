@@ -9,6 +9,15 @@ public class AccountDTO {
     private String description;
     private BigDecimal amount;
 
+    public AccountDTO() {
+    }
+
+    public AccountDTO(Account entity) {
+        name = entity.getName();
+        description = entity.getDescription();
+        amount = entity.getBalance();
+    }
+
     public String getName() {
         return name;
     }

@@ -7,6 +7,9 @@ import account.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("accounts")
 public class AccountResource {
@@ -18,5 +21,12 @@ public class AccountResource {
     @ResponseBody
     public Account create(@RequestHeader("userRef") String userRef, @RequestBody AccountDTO account) {
         return repository.save(account.toEntity(userRef));
+    }
+
+
+    @RequestMapping
+    @ResponseBody
+    public Collection<AccountDTO> getAll(@RequestHeader("userRef") String userRef) {
+        return repository.findByUserRef(userRef).stream().map(AccountDTO::new).collect(Collectors.toList());
     }
 }
