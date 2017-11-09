@@ -15,7 +15,7 @@ public class Account {
     private String name;
     private String description;
     @Column(nullable = false)
-    private String user;
+    private String userRef;
 
 
     public String getId() {
@@ -34,12 +34,12 @@ public class Account {
         this.balance = balance;
     }
 
-    public String getUser() {
-        return user;
+    public String getUserRef() {
+        return userRef;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUserRef(String userRef) {
+        this.userRef = userRef;
     }
 
     public String getDescription() {
