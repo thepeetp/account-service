@@ -29,4 +29,9 @@ public class AccountResource {
     public Collection<AccountDTO> getAll(@RequestHeader("User-Ref") String userRef) {
         return repository.findByUserRef(userRef).stream().map(AccountDTO::new).collect(Collectors.toList());
     }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "{id}")
+    public void delete(@PathVariable String id){
+        repository.delete(id);
+    }
 }
