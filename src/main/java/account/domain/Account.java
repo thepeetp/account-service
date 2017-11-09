@@ -11,12 +11,21 @@ public class Account {
 
     @Id
     private String id = UUID.randomUUID().toString();
-    private BigDecimal balance = BigDecimal.ZERO;
     private String name;
+    private BigDecimal balance = BigDecimal.ZERO;
     private String description;
     @Column(nullable = false)
     private String userRef;
 
+    public Account() {
+    }
+
+    public Account(String name, BigDecimal balance, String description, String userRef) {
+        this.name = name;
+        this.balance = balance;
+        this.description = description;
+        this.userRef = userRef;
+    }
 
     public String getId() {
         return id;
