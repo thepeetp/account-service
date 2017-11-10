@@ -36,8 +36,8 @@ public class AccountResource {
     }
 
 
-    @RequestMapping(method = RequestMethod.PUT)
-    public void update(@RequestBody AccountDTO account) {
-        repository.save(repository.findOne(account.getId()).fetch(account));
+    @RequestMapping(value="{id}", method = RequestMethod.PUT)
+    public void update(@PathVariable String accountId, @RequestBody AccountDTO account) {
+        repository.save(repository.findOne(accountId).fetch(account));
     }
 }
