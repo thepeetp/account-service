@@ -34,4 +34,10 @@ public class AccountResource {
     public void delete(@PathVariable String id){
         repository.delete(id);
     }
+
+
+    @RequestMapping(method = RequestMethod.PUT)
+    public void update(@RequestBody AccountDTO account) {
+        repository.save(repository.findOne(account.getId()).fetch(account));
+    }
 }
