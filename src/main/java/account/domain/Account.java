@@ -14,6 +14,7 @@ public class Account {
     @Id
     private String id = UUID.randomUUID().toString();
     private String name;
+    @Column(nullable = false)
     private BigDecimal balance = BigDecimal.ZERO;
     private String description;
     @Column(nullable = false)
