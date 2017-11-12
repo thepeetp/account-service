@@ -5,6 +5,7 @@ import account.dto.AccountDTO;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -15,6 +16,7 @@ public class Account {
     private String id = UUID.randomUUID().toString();
     private String name;
     @Column(nullable = false)
+    @NotNull
     private BigDecimal balance = BigDecimal.ZERO;
     private String description;
     @Column(nullable = false)
