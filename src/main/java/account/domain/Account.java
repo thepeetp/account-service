@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -21,6 +22,7 @@ public class Account {
     private String description;
     @Column(nullable = false)
     private String userRef;
+    private LocalDateTime createdDate = LocalDateTime.now();
 
     public Account() {
     }
@@ -75,5 +77,13 @@ public class Account {
     public Account fetch(AccountDTO dto) {
         balance = dto.getAmount();
         return this;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
     }
 }
