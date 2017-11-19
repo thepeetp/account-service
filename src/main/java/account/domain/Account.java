@@ -22,6 +22,7 @@ public class Account {
     private String description;
     @Column(nullable = false)
     private String userRef;
+    @Column(updatable = false)
     private LocalDateTime createdDate = LocalDateTime.now();
 
     public Account() {
