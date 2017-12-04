@@ -29,7 +29,7 @@ public class SyncDataWithNode implements ApplicationListener<ContextRefreshedEve
         try {
             Client client = Client.create();
             WebResource webResource = client
-                    .resource("https://account-node.herokuapp.com/accounts");
+                    .resource("https://account-node.herokuapp.com/accounts/migrate");
             ClientResponse response = webResource.type("application/json")
                     .post(ClientResponse.class, new Gson().toJson(account));
             if (response.getStatus() != 201 && response.getStatus() != 200) {
